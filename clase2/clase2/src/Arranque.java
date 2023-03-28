@@ -1,12 +1,16 @@
+import entidades.Empleado;
 import entidades.Persona;
 import obreros.Lijador;
 import obreros.Pintor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Arranque {
 
     public static void main(String[] args) {
         Arranque arranque = new Arranque();
-        arranque.arrancar();
+        arranque.arrancar2();
     }
 
     public void arrancar() {
@@ -26,6 +30,36 @@ public class Arranque {
             else {
                 // No se puede lijar
             }
+        }
+    }
+
+    public void arrancar2() {
+        Persona persona1 = new Persona("Fernando", "Villarreal");
+        persona1.hacerAlgo();
+
+        Empleado empleado1 = new Empleado("Fernando", "Villarreal", "l001");
+        empleado1.hacerAlgo();
+        empleado1.funcionEmpleado();
+
+        Persona persona2 = (Persona) empleado1;
+        persona2.hacerAlgo();
+
+        if (persona2 instanceof Persona) {
+            System.out.println("persona2 es del tipo persona");
+        }
+
+        if (persona2 instanceof Empleado) {
+            System.out.println("Persona2 es del tipo empleado");
+        }
+        // Esto da error
+        //persona2.funcionEmpleado();
+
+        List<Persona> personas = new ArrayList<>();
+        personas.add(persona1);
+        personas.add(empleado1);
+
+        for(Persona p : personas) {
+            p.hacerAlgo();
         }
     }
 }

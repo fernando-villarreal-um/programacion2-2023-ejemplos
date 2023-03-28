@@ -27,4 +27,9 @@ public class Persona {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
+    public void hacerAlgo() {
+        System.out.println("Metodo hacerAlgo de la persona");
+    }
+
 }
