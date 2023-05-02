@@ -15,12 +15,12 @@ public class Ejemplo {
         }
     }
 
-    public void metodo3(String valor2) throws MiExcepcion, Exception{
+    public void metodo3(String valor2) throws MiExcepcion, MiExcepcionHija{
         if(valor2.equals("texto no permitodo")) {
             throw new MiExcepcion("Esta excepción es porque el texto es inválido");
         }
         if(valor2 == null) {
-            throw new Exception("Esta excepción es porque el texto es nulo");
+            throw new MiExcepcionHija("Esta excepción es porque el texto es nulo");
         }
     }
 

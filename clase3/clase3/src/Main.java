@@ -1,7 +1,4 @@
-import clases.Ejemplo;
-import clases.Empleado;
-import clases.MiExcepcion;
-import clases.Persona;
+import clases.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,7 +7,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Main m = new Main();
-        m.arrancar4();
+        m.arrancar8();
     }
 
     public void arrancar() {
@@ -119,10 +116,40 @@ public class Main {
         empleadosLista.add(empleado5);
         Collections.sort(empleadosLista);
 
-        String pepe = "";
+    }
+
+    public void arrancar5() {
+        Ejemplo ejemplo = new Ejemplo();
+
+        try {
+            ejemplo.metodo3("texto no permitodo");
+        }
+
+        catch (MiExcepcionHija e) {
+            System.out.println("Excepcion MiExcepcionHija");
+            e.printStackTrace();
+        }
+
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
+    public void arrancar6() {
+        Ejemplo e = new Ejemplo();
+        this.arrancar5();
+    }
+
+    public void arrancar7() {
+        Ejemplo e = new Ejemplo();
+        this.arrancar6();
+    }
+
+    public void arrancar8() {
+        Ejemplo e = new Ejemplo();
+        this.arrancar7();
+    }
 
 }
 
