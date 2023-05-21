@@ -18,18 +18,29 @@ public class Arranque {
     }
 
     public void arranque() {
-        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        ExecutorService executorService = Executors.newFixedThreadPool(20);
         for(int i = 0; i < 10; i++) {
             HiloCallable hc = new HiloCallable("hilo: "+i,100,10);
             executorService.submit(hc);
         }
         executorService.shutdown();
+        HiloCallable hc = new HiloCallable("hilo: ",100,10);
+        //executorService.submit(hc);
     }
 
     public void arranque2() {
         ExecutorService executorService = Executors.newFixedThreadPool(1);
         HiloCallable2 hc = new HiloCallable2("hilo1",1500,50);
         Future<String> resultado = executorService.submit(hc);
+        try {
+            resultado.get();
+            System.out.println("Finalizó");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+        /*
         while(resultado.isDone()) {
 
             try {
@@ -45,6 +56,9 @@ public class Arranque {
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
         }
+
+         */
+
         executorService.shutdown();
     }
 
@@ -55,7 +69,7 @@ public class Arranque {
         for(int i = 0; i < iteraciones; i++) {
             Random aleatorio = new Random(System.currentTimeMillis());
             HiloCallable2 hc = new HiloCallable2("hilo: "+i,aleatorio.nextInt(900)+100,aleatorio.nextInt(5)+10);
-            hc.setMostrar(false);
+            //hc.setMostrar(false);
             Future<String> resultado = executorService.submit(hc);
             resultados.add(resultado);
         }
@@ -77,7 +91,7 @@ public class Arranque {
                     resultados.remove(i);
                 }
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
