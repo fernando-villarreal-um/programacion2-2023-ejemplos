@@ -18,6 +18,7 @@ public class Arranque {
     public void arranque() {
         System.out.println("Arranque");
         this.servicioPrueba.llamado1();
+        this.servicioPrueba.llamado2();
 
         // Creamos una instancia del productor y lo iniciamos
         Productor productor = new Productor();
