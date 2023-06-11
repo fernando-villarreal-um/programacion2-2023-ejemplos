@@ -10,4 +10,6 @@ public class PruebaConfiguration {
     @Value("${clase9.conf1.parametro1}")
     protected String parametro1;
 
+    @Value("${servicioHTTP.url}")
+    protected String url;
 }

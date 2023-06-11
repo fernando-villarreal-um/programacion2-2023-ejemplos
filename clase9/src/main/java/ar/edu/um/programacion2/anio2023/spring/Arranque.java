@@ -15,6 +15,9 @@ public class Arranque {
 
     @Autowired
     Almacenamiento almacenamiento;
+
+    @Autowired
+    PruebaConfiguration pruebaConfiguration;
     public void arranque() {
         System.out.println("Arranque");
         this.servicioPrueba.llamado1();
