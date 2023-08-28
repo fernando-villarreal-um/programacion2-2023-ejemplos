@@ -4,6 +4,7 @@ import ar.edu.um.programacion2.anio2023.spring.ApplicationContextProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
+
 public class Consumidor implements Runnable{
     private Almacenamiento almacenamiento;
 

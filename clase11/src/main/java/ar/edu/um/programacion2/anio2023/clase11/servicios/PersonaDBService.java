@@ -18,7 +18,10 @@ public class PersonaDBService implements PersonaService {
     @Override
     public Persona get(long id) {
         Optional<Persona> persona = this.personaRepository.findById(id);
-        return persona.get();
+        if(persona.isPresent()) {
+            return persona.get();
+        }
+        return null;
     }
 
     @Override

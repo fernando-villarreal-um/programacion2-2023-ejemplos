@@ -7,3 +7,12 @@ fernando:
     nombre: bruno
     apellido: diaz
     codigo: 1
+
+lalista:
+  personas:
+  - nombre: maria
+    apellido: corvalan
+    codigo: 1
+  - nombre: bruno
+    apellido: diaz
+    codigo: 2
